@@ -1,0 +1,15 @@
+{
+  "titleAppBar": "My Stories",
+  "storiesTextBtn" : "Tambahkan Cerita",
+  "titleLogin" : "Selamat datang",
+  "subtitleLogin" : "Masukkan kredensial Anda untuk melanjutkan",
+  "titleRegister" : "Daftar akun",
+  "subtitleRegister" : "Daftar untuk memulai",
+  "loginBtn" : "Masuk",
+  "textLoginRoute" : "Belum memiliki akun?",
+  "registerBtn" : "Daftar",
+  "textRegisterRoute" : "Sudah menjadi anggota?",
+  "logoutBtn" : "Keluar",
+  "postBtn" : "Publis",
+  "dateFormat": "id_ID"
+}
