@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:story_app_intermediate_final/localization_bloc.dart';
 import 'package:story_app_intermediate_final/presentation/blocs/auth_bloc/auth_bloc_bloc.dart';
+import 'package:story_app_intermediate_final/presentation/blocs/location_bloc/location_bloc.dart';
 
 import 'domain/repositories/story_repository.dart';
 import 'domain/repositories/user_repository.dart';
@@ -30,6 +32,9 @@ void init() {
   locator.registerFactory(() => StoriesDetailBloc(
         locator(),
       ));
+  locator.registerFactory(() => LocationBloc());
+
+  locator.registerFactory(() => LocalizationBloc());
 
   // USE CASE INJECTION
   locator.registerLazySingleton(() => CreateUserRegister(locator()));

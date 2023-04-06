@@ -10,6 +10,13 @@
   "registerBtn" : "Register",
   "textRegisterRoute" : "Already member?",
   "logoutBtn" : "Log out",
+  "logoutDialog": "Are you sure you want to log out?",
+  "logoutBtnYes": "Yes",
+  "logoutBtnNo": "No",
   "postBtn" : "Posting",
-  "dateFormat": "en_US"
+  "dateFormat": "en_US",
+  "pickLocationAppBar": "Choose a Location",
+  "pickLocationBtn": "Select this location",
+  "pickLocationDialogContent": "You need to drop a pin to select a location",
+  "dialogImportantTitle": "Important"
 }

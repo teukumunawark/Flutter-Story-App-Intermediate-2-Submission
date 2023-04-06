@@ -10,6 +10,13 @@
   "registerBtn" : "Daftar",
   "textRegisterRoute" : "Sudah menjadi anggota?",
   "logoutBtn" : "Keluar",
+  "logoutDialog": "Apakah kamu yakin ingin keluar?",
+  "logoutBtnYes": "Ya",
+  "logoutBtnNo": "Tidak",
   "postBtn" : "Publis",
-  "dateFormat": "id_ID"
+  "dateFormat": "id_ID",
+  "pickLocationAppBar": "Pilih Lokasi",
+  "pickLocationBtn": "Pilih lokasi ini",
+  "pickLocationDialogContent": "Anda perlu menandai lokasi untuk memilih sebuah lokasi",
+  "dialogImportantTitle": "Penting"
 }
