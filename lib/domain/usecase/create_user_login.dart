@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 
-import '../../application/models/user_create_model.dart';
-import '../entities/auth_entities.dart';
+import '../../application/models/auth/auth_model.dart';
+import '../entities/login_entities.dart';
 import '../exceptions.dart';
 import '../repositories/user_repository.dart';
 
