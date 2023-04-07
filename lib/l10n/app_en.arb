@@ -1,0 +1,22 @@
+{
+  "titleAppBar": "My Stories",
+  "storiesTextBtn" : "Add Stories",
+  "titleLogin" : "Welcome back",
+  "subtitleLogin" : "Enter your credential to continue",
+  "titleRegister" : "Create account",
+  "subtitleRegister" : "Sign up to get started!",
+  "loginBtn" : "Login",
+  "textLoginRoute" : "Don’t have account?",
+  "registerBtn" : "Register",
+  "textRegisterRoute" : "Already member?",
+  "logoutBtn" : "Log out",
+  "logoutDialog": "Are you sure you want to log out?",
+  "logoutBtnYes": "Yes",
+  "logoutBtnNo": "No",
+  "postBtn" : "Posting",
+  "dateFormat": "en_US",
+  "pickLocationAppBar": "Choose a Location",
+  "pickLocationBtn": "Select this location",
+  "pickLocationDialogContent": "You need to drop a pin to select a location",
+  "dialogImportantTitle": "Important"
+}
