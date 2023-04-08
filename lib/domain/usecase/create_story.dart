@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 
-import '../../application/models/story_create_model.dart';
+import '../../application/models/story/story_model.dart';
 import '../exceptions.dart';
 import '../repositories/story_repository.dart';
 
