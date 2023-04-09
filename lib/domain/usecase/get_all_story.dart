@@ -9,7 +9,11 @@ class GetStories {
 
   GetStories(this.repository);
 
-  Future<Either<Failure, List<StoryResponseEntity>>> execute(String token) {
-    return repository.getStories(token);
+  Future<Either<Failure, List<StoryResponseEntity>>> execute([
+    String? token,
+    int page = 1,
+    int size = 10,
+  ]) {
+    return repository.getStories(token!, page, size);
   }
 }
