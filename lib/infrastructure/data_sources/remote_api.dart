@@ -1,15 +1,13 @@
 import 'package:dio/dio.dart';
+import 'package:story_app_intermediate_final/application/models/auth/auth_model.dart';
 
-import '../../application/models/auth_res_model.dart';
-import '../../application/models/story_create_model.dart';
-import '../../application/models/story_response.dart';
-import '../../application/models/user_create_model.dart';
+import '../../application/models/story/story_model.dart';
 import '../exceptions.dart';
 
 abstract class RemoteDataSource {
   Future<void> register(UserCreateModel user);
-  Future<AuthResModel> login(UserCreateModel user);
-  Future<List<StoryModel>> getStories(String token);
+  Future<LoginResponse> login(UserCreateModel user);
+  Future<List<StoryModel>> getStories(String token, int page, int size);
   Future<void> createStory(StoryCreateModel story, String token);
   Future<StoryModel> getDetailStories(String token, String id);
 }
@@ -35,7 +33,7 @@ class RemoteDataSourceIMPL extends RemoteDataSource {
   }
 
   @override
-  Future<AuthResModel> login(UserCreateModel user) async {
+  Future<LoginResponse> login(UserCreateModel user) async {
     try {
       final response = await dio.post('$apiURL/login', data: {
         'email': user.email,
@@ -43,7 +41,7 @@ class RemoteDataSourceIMPL extends RemoteDataSource {
       });
 
       if (response.data is Map<String, dynamic>) {
-        return AuthResModel.fromJson(response.data);
+        return LoginResponse.fromJson(response.data);
       } else {
         throw ServerException('Invalid response type');
       }
@@ -54,10 +52,14 @@ class RemoteDataSourceIMPL extends RemoteDataSource {
   }
 
   @override
-  Future<List<StoryModel>> getStories(String token) async {
+  Future<List<StoryModel>> getStories([
+    String? token,
+    int page = 1,
+    int size = 10,
+  ]) async {
     try {
       dio.options.headers['Authorization'] = "Bearer $token";
-      final response = await dio.get('$apiURL/stories');
+      final response = await dio.get('$apiURL/stories?page=$page&size=$size');
 
       if (response.statusCode == 200) {
         return StoriesResponse.fromJson(response.data).listStory;
