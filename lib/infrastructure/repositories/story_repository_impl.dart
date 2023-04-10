@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:dartz/dartz.dart';
 
-import '../../application/models/story_create_model.dart';
+import '../../application/models/story/story_model.dart';
 import '../../domain/entities/story_enitities.dart';
 import '../../domain/exceptions.dart';
 import '../../domain/repositories/story_repository.dart';
@@ -14,11 +14,13 @@ class StoryRepositoryIMPL implements StoryRepository {
   StoryRepositoryIMPL({required this.dataSource});
 
   @override
-  Future<Either<Failure, List<StoryResponseEntity>>> getStories(
-    String token,
-  ) async {
+  Future<Either<Failure, List<StoryResponseEntity>>> getStories([
+    String? token,
+    int page = 1,
+    int size = 10,
+  ]) async {
     try {
-      final result = await dataSource.getStories(token);
+      final result = await dataSource.getStories(token!, page, size);
       return Right(result.map((model) => model.toEntity()).toList());
     } on ServerException catch (e) {
       return Left(ServerFailure(e.message));
