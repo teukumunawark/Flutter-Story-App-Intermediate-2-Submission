@@ -27,6 +27,8 @@ class StoryLoaded extends StoryState {
 
   @override
   List<Object> get props => [data];
+
+  List<StoryResponseEntity> get getData => data;
 }
 
 class StoryCreated extends StoryState {}

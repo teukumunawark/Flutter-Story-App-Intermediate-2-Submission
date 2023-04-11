@@ -35,3 +35,5 @@ class OnGetDetailEvent extends StoryEvent {
   @override
   List<Object> get props => [_id, _token];
 }
+
+class ResetStateEvent extends StoryEvent {}
