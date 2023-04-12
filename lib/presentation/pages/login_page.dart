@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ndialog/ndialog.dart';
 
-import '../../application/models/user_create_model.dart';
+import '../../application/models/auth/auth_model.dart';
 import '../../common.dart';
 import '../blocs/auth_bloc/auth_bloc_bloc.dart';
 import '../routes/app_route.dart';
@@ -73,7 +74,25 @@ class _LoginPageState extends State<LoginPage> {
             } else if (state is LoginSuccess) {
               final token = state.data.loginResult!.token;
               saveToken(token.toString());
-              router.goNamed('home', extra: token);
+              ProgressDialog.future(
+                context,
+                title: const Center(child: Text("Berhasil")),
+                message: const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 20),
+                  child: Text(
+                    "  Mohon Tunggu Sebentar 🙂",
+                  ),
+                ),
+                blur: 10,
+                dialogStyle: DialogStyle(
+                  contentPadding: const EdgeInsets.symmetric(
+                    horizontal: 15,
+                    vertical: 10,
+                  ),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                future: Future.delayed(const Duration(seconds: 5)),
+              ).then((value) => router.goNamed('home'));
             } else {
               const ButtonLoading();
             }
