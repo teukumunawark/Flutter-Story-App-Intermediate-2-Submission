@@ -16,12 +16,12 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
-    Timer(const Duration(seconds: 6), () async {
+    Timer(const Duration(seconds: 1), () async {
       String? token = await getToken();
       if (token != null && token.isNotEmpty) {
-        router.goNamed('home', extra: token);
+        router.goNamed('home', extra: {'token': token});
       } else {
-        router.pushReplacementNamed('login');
+        router.goNamed('login');
       }
     });
     super.initState();
@@ -30,17 +30,20 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: DefaultTextStyle(
-          style: kHeading2.copyWith(fontSize: 35),
-          child: AnimatedTextKit(
-            pause: const Duration(microseconds: 2),
-            isRepeatingAnimation: true,
-            animatedTexts: [
-              RotateAnimatedText('Create memories'),
-              RotateAnimatedText('share experiences'),
-              RotateAnimatedText(' inspire others.'),
-            ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Center(
+          child: DefaultTextStyle(
+            style: kHeading2.copyWith(fontSize: 20),
+            child: AnimatedTextKit(
+              pause: const Duration(microseconds: 2),
+              isRepeatingAnimation: true,
+              animatedTexts: [
+                RotateAnimatedText('Create memories'),
+                RotateAnimatedText('share experiences'),
+                RotateAnimatedText(' inspire others.'),
+              ],
+            ),
           ),
         ),
       ),
